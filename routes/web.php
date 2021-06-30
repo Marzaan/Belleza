@@ -15,16 +15,31 @@ Route::get('/','FrontController@index');
 Route::get('/index','FrontController@index');
 
 //============= Home.Product =============
-Route::get('/products','FrontController@products');
+Route::get('/products','FrontController@products')->name('products');
 Route::get('/face', 'FrontController@face')->name('face');
 Route::get('/eye', 'FrontController@eye')->name('eye');
 Route::get('/lip', 'FrontController@lip')->name('lip');
-Route::get('/order{id}',[
-	'uses' => 'FrontController@order',
-	'as'   => 'order'
-]);
+
 Route::get('/searchPro', 'FrontController@search')->name('searchPro');
 
+//============= Home.Cart =============
+Route::get('/cart', 'shoppingController@cart');
+Route::post('/cart/add',[
+	'uses' => 'shoppingController@add_to_cart',
+	'as'   => 'cart.add'
+]);
+Route::get('/cart/delete/{id}',[
+	'uses' => 'shoppingController@delete_cart',
+	'as'   => 'cart.delete'
+]);
+Route::get('/cart/qtym/{id}',[
+	'uses' => 'shoppingController@qty_minus',
+	'as'   => 'cart.qty.m'
+]);
+Route::get('/cart/qtyp/{id}',[
+	'uses' => 'shoppingController@qty_plus',
+	'as'   => 'cart.qty.p'
+]);
 //============= Home.About =============
 Route::get('/about','FrontController@about');
 
@@ -129,7 +144,7 @@ Route::get('/contact/delete/{id}',[
 	'as'   => 'contact.delete'
 ]);
 
-//============= Reservation =============
+//============= Admin.order =============
 Route::get('/order','OrdersController@index');
 Route::post('/order','OrdersController@store');
 
@@ -145,6 +160,18 @@ Route::get('/request/confirm/{id}',[
 Route::get('/request/complete/{id}',[
 	'uses' => 'OrdersController@complete',
 	'as'   => 'request.complete'
+]);
+Route::get('/request/viewDelivered/{id}/',[
+	'uses' => 'OrdersController@view_Delivered_Order',
+	'as'   => 'request.viewDelivered'
+]);
+Route::get('/request/viewConfirmed/{id}/',[
+	'uses' => 'OrdersController@view_Confirmed_Order',
+	'as'   => 'request.viewConfirmed'
+]);
+Route::get('/request/viewOrder/{id}/',[
+	'uses' => 'OrdersController@viewOrder',
+	'as'   => 'request.view'
 ]);
 
 Route::get('/confirmed','OrdersController@index2');

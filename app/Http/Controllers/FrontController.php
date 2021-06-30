@@ -23,13 +23,6 @@ class FrontController extends Controller
         $item = Items::all();
     	return view('FrontView.products',compact('item'));
     }
-    public function vieworder(){
-    	return view('FrontView.order');
-    }
-    public function order($id){
-        $item = Items::find($id);
-        return view('FrontView.order',compact('item'));
-    }
      public function face(Request $request){
         $regAd = Items::where('category', '=', 'Face')->orderBy('price','asc')->get();
         return view('FrontView.products',['item'=>$regAd]);
@@ -66,7 +59,7 @@ class FrontController extends Controller
         $img = Items::all();
     	return view('FrontView.gallery',['img'=>$img]);
     }
-        public function search(Request $request){
+    public function search(Request $request){
         $query = $request->get('searchPro');
         $item = DB::table('items')
         ->where('id', 'like', '%'.$query.'%')

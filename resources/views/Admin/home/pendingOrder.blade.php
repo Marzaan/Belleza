@@ -24,21 +24,18 @@
                                 <table class="table table-bordred table-striped">
                                     <thead class="thead-dark">
                                         <tr>
+                                          <th scope="col">No</th>
                                           <th scope="col">Name</th>
                                           <th scope="col">Email</th>
                                           <th scope="col">Phone</th>
                                           <th scope="col">Address</th>
-                                          <th scope="col">Product Name</th>
-                                          <th scope="col">Code</th>
-                                          <th scope="col">Type</th>
-                                          <th scope="col">Quantity</th>
-                                          <th scope="col">Bill</th>
                                           <th scope="col">Action</th>                               
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
                                     	$i=0;
+                                      $j=0;
                                     ?>
                                     @if($req->count() > 0 )
                                       @foreach($req as $req)
@@ -47,18 +44,13 @@
                                     		++$i;
                                     	?>
                                         <tr>
+                                            <td>{{ ++$j }}</td>
                                             <td>{{ $req->CustomerName }}</td>
                                             <td>{{ $req->email }}</td>
                                             <td>{{ $req->phone }}</td>
                                             <td>{{ $req->address }}</td>
-                                            <td>{{ $req->productName }}</td>
-                                            <td>{{ $req->pid }}</td>
-                                            <td>{{ $req->productType }}</td>
-                                            <td>{{ $req->quantity }}</td>
-                                            <td>{{ $req->price*$req->quantity }}</td>
                                             <td>
-                                                <a href="{!! route('request.confirm', ['id'=>$req->id]) !!}" class="btn btn-success btn-xs">Confirm</a>
-                                                <a href="{!! route('request.delete', ['id'=>$req->id]) !!}" class="btn btn-danger btn-xs" onclick="return confirmToCancel()">Cancel</a>
+                                                <a href="{!! route('request.view', ['id'=>$req->id]) !!}" class="btn btn-success btn-xs">View Order</a>
                                             </td>
                                         </tr>
                                         @endif

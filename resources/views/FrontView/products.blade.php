@@ -63,15 +63,19 @@
 									<img src="{{URL::asset('img/products/'.$ad->image)}}"/>
 									<div class="product_content">
 										<h4>{{ $ad->name }}</h4>
-									<div class="our-button btn-group">
-										<a href="{!! route('order', ['id'=>$ad->id]) !!}" class="btn btn-dark">Order</a>
-							<div class="btn-group">
-								<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Price</button>
-									<div class="dropdown-menu">
-										<button type="button" class="dropdown-item">{{ $ad->price }}Tk</button>
-									</div>
+						<form action="{{url('cart/add')}}" method="post">
+							<div class="our-button btn-group">
+									{{ csrf_field() }}
+									<button type="submit" class="btn btn-dark">Add Cart</button>
+									<input type="hidden" name="pdt_id" value="{{ $ad->id }}">
+								<div class="btn-group">
+									<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Price</button>
+										<div class="dropdown-menu">
+											<button type="button" class="dropdown-item">{{ $ad->price }}Tk</button>
+										</div>
 								</div>	
 							</div>
+						</form>
 								<p>{{ $ad->description }}</p>
 								</div>
 							</div>
@@ -86,17 +90,19 @@
 									<img src="{{URL::asset('img/products/'.$ad->image)}}"/>
 									<div class="product_content">
 										<h4>{{ $ad->name }}</h4>
-								
-									<div class="our-button btn-group">
-									<a href="{!! route('order', ['id'=>$ad->id]) !!}" class="btn btn-dark">Order</a>
-							<div class="btn-group">
-								<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Price</button>
-									<div class="dropdown-menu">
-										<button type="button" class="dropdown-item">{{ $ad->price }}Tk</button>
-										
-									</div>
+						<form action="{{url('cart/add')}}" method="post">
+							<div class="our-button btn-group">
+									{{ csrf_field() }}
+									<button type="submit" class="btn btn-dark">Add Cart</button>
+									<input type="hidden" name="pdt_id" value="{{ $ad->id }}">
+								<div class="btn-group">
+									<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Price</button>
+										<div class="dropdown-menu">
+											<button type="button" class="dropdown-item">{{ $ad->price }}Tk</button>
+										</div>
 								</div>	
 							</div>
+						</form>
 								<p>{{ $ad->description }}</p>
 								</div>
 							</div>

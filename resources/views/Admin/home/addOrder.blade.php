@@ -5,7 +5,7 @@
 @endsection
 
 @section('heading')
-	Add Table
+	Add Order
 @endsection
 
 @section('mainContent')

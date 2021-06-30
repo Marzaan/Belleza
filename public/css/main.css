@@ -1923,7 +1923,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Start Home Banner Area 
 ============================================================================================ */
 .home-banner-area {
-  background: url(../img/header-bg.png) no-repeat center; }
+  background: url(../img/header-bg.jpg) no-repeat center; }
   .home-banner-area .height {
     height: 500px; }
   @media (max-width: 991px) {
@@ -1959,7 +1959,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Start Banner Area 
 ============================================================================================ */
 .banner-area {
-  background: url(../img/banner-bg.png) no-repeat center; }
+  background: url(../img/banner-bg.jpg) no-repeat center; }
   .banner-area .height {
     height: 450px; }
   @media (max-width: 991px) {
@@ -3023,5 +3023,28 @@ h1, h2, h3, h4, h5, h6 {
         color: #ffffff; }
 
 /*-------- end footer Area -------------*/
+
+/*-------- Cart Count -------------*/
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+#lblCartCount {
+    font-size: 14px;
+    background: #11d2ec;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: +30px; 
+    margin-top: -50px;
+}
 
 /*# sourceMappingURL=main.css.map */

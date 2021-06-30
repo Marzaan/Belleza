@@ -16,6 +16,7 @@
 	<meta charset="UTF-8">
 	<!-- Site Title -->
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i|Roboto:400,500" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- Toastr -->
 	<link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
 	<!--=================CSS======================= -->
@@ -71,8 +72,14 @@
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="contact">Contact</a>
-								</li>
+								</li>	
 							</ul>
+							<div class="align-right">
+								<a href="cart">
+								<i class="fa fa-shopping-cart" style="font-size:40px;color:purple"></i>
+								<span class='badge badge-warning' id='lblCartCount'> {{ Cart::content()->count() }} </span>
+								</a>
+							</div>
 						</div>
 					</nav>
 				</div>
